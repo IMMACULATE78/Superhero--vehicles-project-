@@ -1,0 +1,66 @@
+class Superhero:
+    def __init__(self, name, power, strength_level):
+        self.name = name
+        self.power = power
+        self.strength_level = strength_level
+
+    def display_info(self):
+        print(f"Name: {self.name}")
+        print(f"Power: {self.power}")
+        print(f"Strength Level: {self.strength_level}")
+
+    def fight(self):
+        print(f"{self.name} is fighting using {self.power}!")
+
+
+class FlyingSuperhero(Superhero):
+    def __init__(self, name, power, strength_level, flight_speed):
+        super().__init__(name, power, strength_level)
+        self.flight_speed = flight_speed
+
+    def display_info(self):
+        super().display_info()
+        print(f"Flight Speed: {self.flight_speed} km/h")
+
+    def fly(self):
+        print(f"{self.name} is flying at {self.flight_speed} km/h!")
+
+
+class Vehicle:
+    def move(self):
+        print("The vehicle is moving.")
+
+
+class Car(Vehicle):
+    def move(self):
+        print("The car is driving on the road. 🚗")
+
+
+class Plane(Vehicle):
+    def move(self):
+        print("The plane is flying in the sky. ✈️")
+
+
+class Boat(Vehicle):
+    def move(self):
+        print("The boat is sailing on the water. 🚤")
+
+
+if __name__ == "__main__":
+    print("\n--- Superhero Test ---")
+    hero1 = Superhero("ThunderMan", "Electric Shock", 90)
+    hero2 = FlyingSuperhero("SkyQueen", "Wind Control", 85, 300)
+
+    hero1.display_info()
+    hero1.fight()
+
+    print()
+
+    hero2.display_info()
+    hero2.fight()
+    hero2.fly()
+
+    print("\n--- Vehicles Test ---")
+    vehicles = [Car(), Plane(), Boat()]
+    for vehicle in vehicles:
+        vehicle.move()
